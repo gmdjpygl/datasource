@@ -1,0 +1,14 @@
+spring.datasource.druid.url= jdbc:postgresql://127.0.0.1:5432/postgres
+spring.datasource.druid.username= postgres
+spring.datasource.druid.password= Pass1324
+spring.datasource.druid.driver-class-name= org.postgresql.Driver
+
+spring.datasource.druid.initial-size=10
+spring.datasource.druid.max-active=20
+spring.datasource.druid.min-idle=10
+
+spring.datasource.druid.stat-view-servlet.enabled=true
+spring.datasource.druid.stat-view-servlet.login-username= admin
+spring.datasource.druid.stat-view-servlet.login-password= 123
+
+
