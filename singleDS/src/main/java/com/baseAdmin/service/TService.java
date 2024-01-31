@@ -24,22 +24,26 @@ import org.springframework.transaction.annotation.Transactional;
 
 import com.baseAdmin.mapper.T1Mapper;
 import com.baseAdmin.mapper.T2Mapper;
-
+import com.github.pagehelper.PageHelper;
+import com.github.pagehelper.PageInfo;
 
 @Service
 public class TService {
 	@Autowired
 	private T1Mapper t1Mapper;
-	
 	@Autowired
 	private T2Mapper t2Mapper;
-	public List<Map<String,Object>> getT1(Map<String,Object> params) {
-		List<Map<String, Object>> list =t1Mapper.selectData(null);
+
+	public PageInfo<Map<String, Object>> getT1(Map<String, Object> params) {
+		PageHelper.startPage(5, 2);
+		List<Map<String, Object>> list = t1Mapper.selectData(null);
+		PageInfo<Map<String, Object>> pageInfo = PageInfo.of(list);
+		return pageInfo;
+	}
+
+	public List<Map<String, Object>> getT2(Map<String, Object> params) {
+		List<Map<String, Object>> list = t2Mapper.selectData(null);
 		return list;
-	}	
-	public List<Map<String,Object>> getT2(Map<String,Object> params) {
-		List<Map<String, Object>> list =t2Mapper.selectData(null);
-		return list;
-	}	
-	
+	}
+
 }

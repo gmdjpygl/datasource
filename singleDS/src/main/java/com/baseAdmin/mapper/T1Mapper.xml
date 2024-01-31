@@ -4,7 +4,7 @@
 <mapper namespace="com.baseAdmin.mapper.T1Mapper">
   
     <select id="selectData"  resultType="Map" parameterType="java.util.Map">
-    	select * from t1
+    	select * from t1  order by id
     </select>     
    
   
