@@ -17,14 +17,21 @@ import org.springframework.web.bind.annotation.RestController;
 import com.baseAdmin.service.TService;
 import com.baseAdmin.util.GsonUtil;
 
+import io.swagger.annotations.Api;
+import io.swagger.annotations.ApiOperation;
+import io.swagger.v3.oas.annotations.tags.Tag;
+
 
 @RestController
 @RequestMapping("/t")
 @CrossOrigin(origins = "*")
+@Api(tags="测试")
 public class TController {
 	@Autowired
 	TService tService;
-
+	
+	
+    @ApiOperation("方法1")
 	@GetMapping(value = { "/getT1" })
 	public Object getT1() throws Exception {
 		return tService.getT1(null);
