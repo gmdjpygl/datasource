@@ -35,7 +35,7 @@ public class TService {
 	private T2Mapper t2Mapper;
 
 	public PageInfo<Map<String, Object>> getT1(Map<String, Object> params) {
-		PageHelper.startPage(5, 2);
+		PageHelper.startPage(-1, 0);
 		List<Map<String, Object>> list = t1Mapper.selectData(null);
 		PageInfo<Map<String, Object>> pageInfo = PageInfo.of(list);
 		return pageInfo;

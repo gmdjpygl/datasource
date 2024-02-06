@@ -1,10 +1,10 @@
 # MyBatis配置
 mybatis:
-  mapUnderscoreToCamelCase: true
-  callSettersOnNulls: true
+  mapUnderscoreToCamelCase: true #开启驼峰命名规则自动转换(结果集map不起作用)
+  callSettersOnNulls: true #指定当结果集中值为 null 的时候是否调用映射对象的 setter
   # 搜索指定包别名
   typeAliasesPackage: com.baseAdmin.pojo
   # 配置mapper的扫描，找到所有的mapper.xml映射文件
   # mapperLocations: classpath*:mapper/**/*Mapper.xml
-  configuration:
-      log-impl:   org.apache.ibatis.logging.stdout.StdOutImpl
+  # configuration: mybatis日志
+      # log-impl:   org.apache.ibatis.logging.stdout.StdOutImpl

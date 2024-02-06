@@ -2,7 +2,7 @@ server:
   port: 9080
 spring:
   profiles:
-    active: datasource,mybatis
+    active: datasource,mybatis,pageHelper
   jackson:
     time-zone: GMT+8
     date-format: yyyy-MM-dd HH:mm:ss
@@ -13,7 +13,7 @@ spring:
 logging:
     file: 
        # 日志保存路径
-       name: d:/singleDS.log
+       name: d:/log/singleDS.log
     level:
      # 项目日志级别debug
      #root: info  debug
