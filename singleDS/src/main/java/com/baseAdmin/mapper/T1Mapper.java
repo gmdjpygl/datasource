@@ -6,7 +6,9 @@ import java.util.Map;
 import java.util.Set;
 
 import org.apache.ibatis.annotations.Mapper;
+
+import com.baseAdmin.pojo.T1;
 public interface T1Mapper {
-	List<Map<String, Object>> selectData(Map<String, Object> map);
+	List<T1> selectData(Map<String, Object> map);
 
 }

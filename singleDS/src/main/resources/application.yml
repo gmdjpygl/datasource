@@ -2,13 +2,13 @@ server:
   port: 9080
 spring:
   profiles:
-    active: datasource,mybatis,pageHelper
+    active: datasource,mybatis,pageHelper  # 启用配置文件
   mvc: 
      pathmatch: 
         matching-strategy: ant_path_matcher   # Spring Boot 2.6及以上默认路劲的匹配规则是 PATH_PATTERN_PARSER;而Spring Fox使用的路径匹配是基于 ANT_PATH_MATCHER
   jackson:
-    time-zone: GMT+8
-    date-format: yyyy-MM-dd HH:mm:ss
+    time-zone: GMT+8 # 指定时区
+    date-format: yyyy-MM-dd HH:mm:ss # 指定日期格式
   datasource:
     type: com.alibaba.druid.pool.DruidDataSource
 # 使用springboot自带的logback日志组件

@@ -24,6 +24,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 import com.baseAdmin.mapper.T1Mapper;
 import com.baseAdmin.mapper.T2Mapper;
+import com.baseAdmin.pojo.T1;
 import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
 
@@ -34,10 +35,12 @@ public class TService {
 	@Autowired
 	private T2Mapper t2Mapper;
 
-	public PageInfo<Map<String, Object>> getT1(Map<String, Object> params) {
+	public PageInfo<T1> getT1(Map<String, Object> params) {
+		List<T1> list2 = t1Mapper.selectData(null);
+
 		PageHelper.startPage(-1, 0);
-		List<Map<String, Object>> list = t1Mapper.selectData(null);
-		PageInfo<Map<String, Object>> pageInfo = PageInfo.of(list);
+		List<T1> list = t1Mapper.selectData(null);
+		PageInfo<T1> pageInfo = PageInfo.of(list);
 		return pageInfo;
 	}
 
