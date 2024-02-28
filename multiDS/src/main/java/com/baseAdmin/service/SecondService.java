@@ -22,31 +22,23 @@ import org.springframework.core.env.Environment;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import com.baseAdmin.mapper.master.T1Mapper;
 import com.baseAdmin.mapper.master.T2Mapper;
+import com.baseAdmin.mapper.second.TT1Mapper;
 import com.baseAdmin.pojo.T1;
 import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
 
 @Service
-public class TService {
+public class SecondService {
 	@Autowired
-	private T1Mapper t1Mapper;
-	@Autowired
-	private T2Mapper t2Mapper;
+	private TT1Mapper tt1Mapper;
 
-	public PageInfo<T1> getT1(Map<String, Object> params) {
-		List<T1> list2 = t1Mapper.selectData(null);
+	public PageInfo<T1> getTT1(Map<String, Object> params) {
 
-		PageHelper.startPage(2, 2);
-		List<T1> list = t1Mapper.selectData(null);
+		PageHelper.startPage(0, 2);
+		List<T1> list = tt1Mapper.selectData(null);
 		PageInfo<T1> pageInfo = PageInfo.of(list);
 		return pageInfo;
-	}
-
-	public List<Map<String, Object>> getT2(Map<String, Object> params) {
-		List<Map<String, Object>> list = t2Mapper.selectData(null);
-		return list;
 	}
 
 }

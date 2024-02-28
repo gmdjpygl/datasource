@@ -1,4 +1,4 @@
-# MyBatis配置
+# MyBatis配置 多数据时 application-mybatis.yml不启使用,需要手动配置
 mybatis:
   configuration: 
      mapUnderscoreToCamelCase: true #开启驼峰命名规则自动转换(结果集map不起作用)

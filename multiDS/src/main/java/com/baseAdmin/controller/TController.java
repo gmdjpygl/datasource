@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.baseAdmin.service.SecondService;
 import com.baseAdmin.service.TService;
 import com.baseAdmin.util.GsonUtil;
 
@@ -29,6 +30,8 @@ import io.swagger.v3.oas.annotations.tags.Tag;
 public class TController {
 	@Autowired
 	TService tService;
+	@Autowired
+	SecondService secondService;
 	
 	
     @ApiOperation("方法1")
@@ -36,6 +39,11 @@ public class TController {
 	public Object getT1() throws Exception {
 		return tService.getT1(null);
 	}
+    @ApiOperation("second方法1")
+    @GetMapping(value = { "/getSecondT1" })
+    public Object getSecondT1() throws Exception {
+    	return secondService.getTT1(null);
+    }
 	@GetMapping(value = { "/getT2" })
 	public Object getT2() throws Exception {
 		return tService.getT2(null);

@@ -1,4 +1,4 @@
-package com.baseAdmin.mapper;
+package com.baseAdmin.mapper.master;
 
 import java.util.Date;
 import java.util.List;

@@ -2,7 +2,7 @@ server:
   port: 9080
 spring:
   profiles:
-    active: datasource,mybatis,pageHelper  # 启用配置文件
+    active: datasource-master,datasource-second,pageHelper  # 启用配置文件
   mvc: 
      pathmatch: 
         matching-strategy: ant_path_matcher   # Spring Boot 2.6及以上默认路劲的匹配规则是 PATH_PATTERN_PARSER;而Spring Fox使用的路径匹配是基于 ANT_PATH_MATCHER
