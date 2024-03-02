@@ -19,6 +19,11 @@ import com.alibaba.druid.spring.boot.autoconfigure.DruidDataSourceBuilder;
 @Configuration
 @MapperScan(basePackages = "com.baseAdmin.mapper.master", sqlSessionTemplateRef = "masterSqlSessionTemplate")
 public class DruidConfigMaster {
+	@Bean(name="masterConfig")
+    @ConfigurationProperties(prefix = "mybatis.configuration")
+    public org.apache.ibatis.session.Configuration globalConfiguration() {
+        return new org.apache.ibatis.session.Configuration();
+    }
 	@Primary
 	@Bean(name = "masterDataSource")
 	@ConfigurationProperties("spring.datasource.druid.master")
@@ -28,20 +33,18 @@ public class DruidConfigMaster {
 
 	@Bean(name = "masterSqlSessionFactory")
 	@Primary
-	public SqlSessionFactory sqlSessionFactory(@Qualifier("masterDataSource") DataSource dataSource) throws Exception {
+	public SqlSessionFactory sqlSessionFactory(@Qualifier("masterDataSource") DataSource dataSource,@Qualifier("masterConfig") org.apache.ibatis.session.Configuration mybatisConfig) throws Exception {
 		SqlSessionFactoryBean bean = new SqlSessionFactoryBean();
 		bean.setDataSource(dataSource);
 		bean.setTypeAliasesPackage("com.baseAdmin.pojo");
 		//bean.setMapperLocations(
 		//		new PathMatchingResourcePatternResolver().getResources("classpath:mappers/primary/**/*Mapper.xml"));
 		// 多数据时 application-mybatis.yml不启使用,需要手动配置
-		org.apache.ibatis.session.Configuration configuration = new org.apache.ibatis.session.Configuration();
+		//org.apache.ibatis.session.Configuration configuration = new org.apache.ibatis.session.Configuration();
 		// 自动将数据库中的下划线转换为驼峰格式
-		configuration.setMapUnderscoreToCamelCase(true);
-		configuration.setCallSettersOnNulls(true);
-		bean.setConfiguration(configuration);
-		
-		
+		//configuration.setMapUnderscoreToCamelCase(true);
+	//	configuration.setCallSettersOnNulls(true);
+		bean.setConfiguration(mybatisConfig);
 		return bean.getObject();
 	}
 	

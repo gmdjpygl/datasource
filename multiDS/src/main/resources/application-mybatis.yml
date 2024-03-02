@@ -1,9 +1,11 @@
-# MyBatis配置 多数据时 application-mybatis.yml不启使用,需要手动配置
+# 多数源时,mybatis-spring-boot-autoconfigure不能自动为dataSource自动配置mybatisConfig
+# 因为只支持单一数据源@ConditionalOnSingleCandidate(DataSource.class)
+# 手动为dataSource在配置mybatisconfig
 mybatis:
   configuration: 
      mapUnderscoreToCamelCase: true #开启驼峰命名规则自动转换(结果集map不起作用)
      callSettersOnNulls: true #指定当结果集中值为 null 的时候是否调用映射对象的 setter
-  # 搜索指定包别名
+  # 搜索指定包别名(除mybatis.configuration外,其他配置都需要手动在java代码里配置
   typeAliasesPackage: com.baseAdmin.pojo
   # 配置mapper的扫描，找到所有的mapper.xml映射文件(没有配置,从mapper.java同目录下找)
   # mapperLocations: classpath*:mapper/**/*Mapper.xml

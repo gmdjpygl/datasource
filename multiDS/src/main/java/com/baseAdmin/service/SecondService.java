@@ -35,7 +35,7 @@ public class SecondService {
 
 	public PageInfo<T1> getTT1(Map<String, Object> params) {
 
-		PageHelper.startPage(0, 2);
+		PageHelper.startPage(0, 6);
 		List<T1> list = tt1Mapper.selectData(null);
 		PageInfo<T1> pageInfo = PageInfo.of(list);
 		return pageInfo;
