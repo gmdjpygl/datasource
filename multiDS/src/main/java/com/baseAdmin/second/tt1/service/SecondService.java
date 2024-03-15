@@ -1,4 +1,4 @@
-package com.baseAdmin.service;
+package com.baseAdmin.second.tt1.service;
 
 import java.sql.Timestamp;
 import java.util.ArrayList;
@@ -28,7 +28,7 @@ import com.baseAdmin.pojo.T1;
 import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
 
-@Service("ss")
+@Service
 public class SecondService {
 	@Autowired
 	private TT1Mapper tt1Mapper;

@@ -26,7 +26,7 @@ public class DruidConfigSecond {
 	
 	@Bean(name = "secondDataSource")
 	@ConfigurationProperties("spring.datasource.druid.second")
-	public DataSource primary() {
+	public DataSource dataSource() {
 		return DruidDataSourceBuilder.create().build();
 	}
 

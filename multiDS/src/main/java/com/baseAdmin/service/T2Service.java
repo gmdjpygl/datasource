@@ -22,23 +22,15 @@ import org.springframework.core.env.Environment;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import com.baseAdmin.mapper.master.T1Mapper;
 import com.baseAdmin.mapper.master.T2Mapper;
-import com.baseAdmin.mapper.second.TT1Mapper;
 import com.baseAdmin.pojo.T1;
 import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
 
-@Service("ss")
-public class SecondService {
-	@Autowired
-	private TT1Mapper tt1Mapper;
+@Service
+public class T2Service {
+	
 
-	public PageInfo<T1> getTT1(Map<String, Object> params) {
-
-		PageHelper.startPage(0, 6);
-		List<T1> list = tt1Mapper.selectData(null);
-		PageInfo<T1> pageInfo = PageInfo.of(list);
-		return pageInfo;
-	}
 
 }

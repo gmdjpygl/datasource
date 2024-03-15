@@ -1,4 +1,4 @@
-package com.baseAdmin.service;
+package com.baseAdmin.master.t1.service;
 
 import java.sql.Timestamp;
 import java.util.ArrayList;
@@ -22,8 +22,7 @@ import org.springframework.core.env.Environment;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import com.baseAdmin.mapper.master.T1Mapper;
-import com.baseAdmin.mapper.master.T2Mapper;
+import com.baseAdmin.master.t1.mapper.T1Mapper;
 import com.baseAdmin.pojo.T1;
 import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
@@ -32,8 +31,6 @@ import com.github.pagehelper.PageInfo;
 public class TService {
 	@Autowired
 	private T1Mapper t1Mapper;
-	@Autowired
-	private T2Mapper t2Mapper;
 
 	public PageInfo<T1> getT1(Map<String, Object> params) {
 		List<T1> list2 = t1Mapper.selectData(null);
@@ -44,9 +41,5 @@ public class TService {
 		return pageInfo;
 	}
 
-	public List<Map<String, Object>> getT2(Map<String, Object> params) {
-		List<Map<String, Object>> list = t2Mapper.selectData(null);
-		return list;
-	}
 
 }

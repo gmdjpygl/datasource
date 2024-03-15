@@ -1,4 +1,4 @@
-package com.baseAdmin.controller;
+package com.baseAdmin.second.tt1.controller;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -14,8 +14,9 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.baseAdmin.service.SecondService;
-import com.baseAdmin.service.TService;
+import com.baseAdmin.master.t1.service.TService;
+import com.baseAdmin.second.tt1.service.SecondService;
+import com.baseAdmin.service.T2Service;
 import com.baseAdmin.util.GsonUtil;
 
 import io.swagger.annotations.Api;
@@ -24,12 +25,10 @@ import io.swagger.v3.oas.annotations.tags.Tag;
 
 
 @RestController
-@RequestMapping("/t")
+@RequestMapping("/tt1")
 @CrossOrigin(origins = "*")
-@Api(tags="测试")
-public class TController {
-	@Autowired
-	TService tService;
+@Api(tags="测试tt1")
+public class TT1Controller {
 	@Autowired
 	SecondService secondService;
 	
@@ -37,15 +36,6 @@ public class TController {
     @ApiOperation("方法1")
 	@GetMapping(value = { "/getT1" })
 	public Object getT1() throws Exception {
-		return tService.getT1(null);
-	}
-    @ApiOperation("second方法1")
-    @GetMapping(value = { "/getSecondT1" })
-    public Object getSecondT1() throws Exception {
-    	return secondService.getTT1(null);
-    }
-	@GetMapping(value = { "/getT2" })
-	public Object getT2() throws Exception {
-		return tService.getT2(null);
+		return secondService.getTT1(null);
 	}
 }

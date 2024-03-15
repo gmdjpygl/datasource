@@ -17,7 +17,7 @@ import org.springframework.jdbc.datasource.DataSourceTransactionManager;
 import com.alibaba.druid.spring.boot.autoconfigure.DruidDataSourceBuilder;
 
 @Configuration
-@MapperScan(basePackages = "com.baseAdmin.mapper.master", sqlSessionTemplateRef = "masterSqlSessionTemplate")
+@MapperScan(basePackages = "com.baseAdmin.master", sqlSessionTemplateRef = "masterSqlSessionTemplate")
 public class DruidConfigMaster {
 	@Bean(name="masterConfig")
     @ConfigurationProperties(prefix = "mybatis.configuration")
@@ -27,7 +27,7 @@ public class DruidConfigMaster {
 	@Primary
 	@Bean(name = "masterDataSource")
 	@ConfigurationProperties("spring.datasource.druid.master")
-	public DataSource primary() {
+	public DataSource dataSource() {
 		return DruidDataSourceBuilder.create().build();
 	}
 
@@ -37,6 +37,7 @@ public class DruidConfigMaster {
 		SqlSessionFactoryBean bean = new SqlSessionFactoryBean();
 		bean.setDataSource(dataSource);
 		bean.setTypeAliasesPackage("com.baseAdmin.pojo");
+		//bean.setMapperLocations(mapperLocations);
 		//bean.setMapperLocations(
 		//		new PathMatchingResourcePatternResolver().getResources("classpath:mappers/primary/**/*Mapper.xml"));
 		// 多数据时 application-mybatis.yml不启使用,需要手动配置

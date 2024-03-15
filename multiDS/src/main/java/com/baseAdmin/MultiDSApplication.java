@@ -7,7 +7,7 @@ import org.springframework.boot.autoconfigure.jdbc.DataSourceAutoConfiguration;
 import org.springframework.boot.autoconfigure.jdbc.DataSourceTransactionManagerAutoConfiguration;
 
 @SpringBootApplication(exclude={
-        DataSourceAutoConfiguration.class,
+        DataSourceAutoConfiguration.class,// 如果想在项目中使用多数据源就需要排除它，手动指定多数据源
         DataSourceTransactionManagerAutoConfiguration.class,
 })
 

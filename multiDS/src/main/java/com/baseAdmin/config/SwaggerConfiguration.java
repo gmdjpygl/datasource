@@ -2,6 +2,8 @@ package com.baseAdmin.config;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.web.servlet.config.annotation.EnableWebMvc;
+
+import io.swagger.annotations.Api;
 import springfox.documentation.builders.ApiInfoBuilder;
 import springfox.documentation.builders.PathSelectors;
 import springfox.documentation.builders.RequestHandlerSelectors;
@@ -22,8 +24,9 @@ public class SwaggerConfiguration {
         return new Docket(DocumentationType.SWAGGER_2).apiInfo(apiInfo())
         		.enable(true)   // 开关
                 .select()
-                .apis(RequestHandlerSelectors.any())
-                .paths(PathSelectors.any())
+                .apis(RequestHandlerSelectors.withClassAnnotation(Api.class))// 扫描所有指定包
+                // .apis(RequestHandlerSelectors.basePackage("com.baseAdmin.master.t1.controller"))// 扫描所有指定包
+                .paths(PathSelectors.any())// 任何请求都扫描
                 .build();
                // .securitySchemes(Collections.singletonList(apiKey()))
                // .securityContexts(Collections.singletonList(securityContext()));
