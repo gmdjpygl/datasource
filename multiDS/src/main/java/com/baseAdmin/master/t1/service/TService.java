@@ -22,8 +22,8 @@ import org.springframework.core.env.Environment;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import com.baseAdmin.master.pojo.T1;
 import com.baseAdmin.master.t1.mapper.T1Mapper;
-import com.baseAdmin.pojo.T1;
 import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
 
@@ -35,7 +35,7 @@ public class TService {
 	public PageInfo<T1> getT1(Map<String, Object> params) {
 		List<T1> list2 = t1Mapper.selectData(null);
 
-		PageHelper.startPage(100,5);
+		PageHelper.startPage(1,5);
 		List<T1> list = t1Mapper.selectData(null);
 		PageInfo<T1> pageInfo = PageInfo.of(list);
 		return pageInfo;

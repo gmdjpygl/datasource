@@ -29,7 +29,7 @@ spring:
                 enabled: true
                 log-slow-sql: true  # 开启慢查询
                 slow-sql-millis: 2000  # 多少秒算慢查询
-         #3.基础监控配置
+         #3.基础监控配置(只在主数据源配置)
          web-stat-filter:
              enabled: true
              url-pattern: /*
@@ -37,7 +37,7 @@ spring:
              exclusions: "*.js,*.gif,*.jpg,*.png,*.css,*.ico,/druid/*"
              session-stat-enable: true
              session-stat-max-count: 100
-         stat-view-servlet: #配置监控页功能
+         stat-view-servlet: #配置监控页功能(只在主数据源配置)
              enabled: true
              # 数据监控访问路径
              url-pattern: /druid/*

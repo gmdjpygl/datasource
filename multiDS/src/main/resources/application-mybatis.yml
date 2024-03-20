@@ -5,8 +5,9 @@ mybatis:
   configuration: 
      mapUnderscoreToCamelCase: true #开启驼峰命名规则自动转换(结果集map不起作用)
      callSettersOnNulls: true #指定当结果集中值为 null 的时候是否调用映射对象的 setter
-  # 搜索指定包别名(除mybatis.configuration外,其他配置都需要手动在java代码里配置
-  typeAliasesPackage: com.baseAdmin.pojo
+# 除了mybatis.configuration配置,其他配置都需要手动在java创建数据源时手动配置里
+  # 搜索指定包别名
+ # typeAliasesPackage: com.baseAdmin.pojo
   # 配置mapper的扫描，找到所有的mapper.xml映射文件(没有配置,从mapper.java同目录下找)
   # mapperLocations: classpath*:mapper/**/*Mapper.xml
   # configuration: mybatis日志

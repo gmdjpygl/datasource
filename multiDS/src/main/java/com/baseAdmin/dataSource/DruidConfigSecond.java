@@ -34,7 +34,7 @@ public class DruidConfigSecond {
 	public SqlSessionFactory sqlSessionFactory(@Qualifier("secondDataSource") DataSource dataSource,@Qualifier("secondConfig") org.apache.ibatis.session.Configuration mybatisConfig) throws Exception {
 		SqlSessionFactoryBean bean = new SqlSessionFactoryBean();
 		bean.setDataSource(dataSource);
-		bean.setTypeAliasesPackage("com.baseAdmin.pojo");
+		bean.setTypeAliasesPackage("com.baseAdmin.second.pojo");
 		//bean.setMapperLocations(
 		//		new PathMatchingResourcePatternResolver().getResources("classpath:mappers/primary/**/*Mapper.xml"));
 		// 多数据时 application-mybatis.yml不启使用,需要手动配置

@@ -1,4 +1,4 @@
-package com.baseAdmin.pojo;
+package com.baseAdmin.second.pojo;
 
 import java.io.Serializable;
 import java.util.Date;

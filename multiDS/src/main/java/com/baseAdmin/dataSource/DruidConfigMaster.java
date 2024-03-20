@@ -36,7 +36,7 @@ public class DruidConfigMaster {
 	public SqlSessionFactory sqlSessionFactory(@Qualifier("masterDataSource") DataSource dataSource,@Qualifier("masterConfig") org.apache.ibatis.session.Configuration mybatisConfig) throws Exception {
 		SqlSessionFactoryBean bean = new SqlSessionFactoryBean();
 		bean.setDataSource(dataSource);
-		bean.setTypeAliasesPackage("com.baseAdmin.pojo");
+		bean.setTypeAliasesPackage("com.baseAdmin.master.pojo");
 		//bean.setMapperLocations(mapperLocations);
 		//bean.setMapperLocations(
 		//		new PathMatchingResourcePatternResolver().getResources("classpath:mappers/primary/**/*Mapper.xml"));
