@@ -1,5 +1,7 @@
 server:
   port: 9080
+  servlet:
+    context-path: /multiDS
 spring:
   profiles:
     active: mybatis,pageHelper,datasource-master,datasource-second  # 启用配置文件

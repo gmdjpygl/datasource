@@ -10,3 +10,14 @@
 /singleDS/.settings/org.eclipse.wst.jsdt.ui.superType.container
 /singleDS/.settings/org.eclipse.wst.jsdt.ui.superType.name
 /singleDS/.settings/org.eclipse.wst.validation.prefs
+/multiDS/*.classpath
+/multiDS/*.gitignore
+/multiDS/*.project
+/multiDS/.settings/*.prefs
+/multiDS/.settings/*.component
+/multiDS/.settings/*.xml
+/multiDS/.settings/*.container
+/multiDS/.settings/*.name
+/multi-mod/.idea/*.xml
+.idea
+target
