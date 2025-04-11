@@ -21,3 +21,4 @@
 /multi-mod/.idea/*.xml
 .idea
 target
+/singleDS/.settings
