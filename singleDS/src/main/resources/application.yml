@@ -4,8 +4,10 @@ spring:
   profiles:
     active: datasource,mybatis,pageHelper  # 启用配置文件
   mvc: 
-     pathmatch: 
-        matching-strategy: ant_path_matcher   # Spring Boot 2.6及以上默认路劲的匹配规则是 PATH_PATTERN_PARSER;而Spring Fox使用的路径匹配是基于 ANT_PATH_MATCHER
+     pathmatch:
+       # Spring Boot 2.6及以上默认路劲的匹配规则是 PATH_PATTERN_PARSER;而Spring Fox使用的路径匹配是基于 ANT_PATH_MATCHER
+       # 修改spring boot 匹配规则
+        matching-strategy: ant_path_matcher
   jackson:
     time-zone: GMT+8 # 指定时区
     date-format: yyyy-MM-dd HH:mm:ss # 指定日期格式

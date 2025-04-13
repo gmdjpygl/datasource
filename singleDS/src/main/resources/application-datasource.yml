@@ -1,9 +1,9 @@
 spring:
    datasource: 
       druid: 
-         url:  jdbc:postgresql://127.0.0.1:5432/postgres
+         url:  jdbc:postgresql://192.168.111.250:5432/postgres
          username: postgres
-         password: Pass1324
+         password: postgres
          druid.driver-class-name: org.postgresql.Driver
          #2.连接池配置
          #初始化连接池的连接数量 大小，最小，最大

@@ -3,6 +3,8 @@ package com.baseAdmin.controller;
 import java.util.HashMap;
 import java.util.Map;
 
+import com.baseAdmin.dempAop.service.MathService;
+import com.baseAdmin.dempAop.service.MathServiceImpl;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -29,6 +31,8 @@ import io.swagger.v3.oas.annotations.tags.Tag;
 public class TController {
 	@Autowired
 	TService tService;
+	@Autowired
+	MathService mathService;
 	
 	
     @ApiOperation("方法1")
@@ -39,5 +43,10 @@ public class TController {
 	@GetMapping(value = { "/getT2" })
 	public Object getT2() throws Exception {
 		return tService.getT2(null);
+	}
+	@ApiOperation("aopAdd")
+	@GetMapping(value = { "/aopAdd" })
+	public Object add() throws Exception {
+		return mathService.add(1,3);
 	}
 }

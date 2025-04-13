@@ -1,4 +1,4 @@
-package com.AopDemo.aop;
+package com.baseAdmin.aop;
 import org.aspectj.lang.JoinPoint;
 import org.aspectj.lang.annotation.AfterReturning;
 import org.aspectj.lang.annotation.Aspect;
@@ -7,6 +7,7 @@ import org.aspectj.lang.annotation.Pointcut;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Component;
+
 /**
  * 文件名：LoggingAspect
  * 创建者：宁贝贝
@@ -20,7 +21,7 @@ public class LoggingAspect {
     /**
      * @Pointcut注解定义了一个切点，用于匹配com.example.service包下所有类的所有方法
      */
-    @Pointcut("execution(* com.AopDemo.aop.MathService.add(..))")
+    @Pointcut("execution(* com.baseAdmin.dempAop.service.MathService.add(..))")
     public void logOnMathServiceAdd() {}
     /**
      * @Before 注解的关键属性：
