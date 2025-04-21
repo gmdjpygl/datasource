@@ -13,8 +13,9 @@ import org.springframework.stereotype.Service;
 import java.util.List;
 import java.util.Map;
 
+@CurDataSource(name = DataSourceNames.SECOND)//@CurDataSource(name = DataSourceNames.SECOND)
 @Service
-public class TService {
+public class SecondService {
 	@Autowired
 	private T1Mapper t1Mapper;
 	@Autowired
@@ -28,7 +29,7 @@ public class TService {
 		PageInfo<T1> pageInfo = PageInfo.of(list);
 		return pageInfo;
 	}
-	@CurDataSource(name = DataSourceNames.SECOND)
+
 	public List<Map<String, Object>> getT2(Map<String, Object> params) {
 		List<Map<String, Object>> list = t2Mapper.selectData(null);
 		return list;
