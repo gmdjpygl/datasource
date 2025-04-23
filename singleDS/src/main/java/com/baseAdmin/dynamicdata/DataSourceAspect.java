@@ -51,6 +51,7 @@ public class DataSourceAspect implements Ordered {
     public int getOrder() {
         return 1;
     }
+
     public CurDataSource getDataSourceKey(Class<?> target, Method method) {
         try {
             Class<?>[] types = method.getParameterTypes();

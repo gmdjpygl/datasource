@@ -32,13 +32,19 @@ public class DynamicDataSourceConfig {
 
         return DruidDataSourceBuilder.create().build();
     }
+    @Bean
+    @ConfigurationProperties("spring.datasource.druid.gwjc")
+    public DataSource gwjcDataSource(){
 
+        return DruidDataSourceBuilder.create().build();
+    }
     @Bean
     @Primary
-    public DynamicDataSource dataSource(DataSource firstDataSource, DataSource secondDataSource) {
+    public DynamicDataSource dataSource(DataSource firstDataSource, DataSource secondDataSource,DataSource gwjcDataSource) {
         Map<Object, Object> targetDataSources = new HashMap<>(5);
         targetDataSources.put(DataSourceNames.FIRST, firstDataSource);
         targetDataSources.put(DataSourceNames.SECOND, secondDataSource);
+        targetDataSources.put(DataSourceNames.GWJC, gwjcDataSource);
         return new DynamicDataSource(firstDataSource, targetDataSources);
     }
 
