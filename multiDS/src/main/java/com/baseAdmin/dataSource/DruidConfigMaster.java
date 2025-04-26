@@ -6,24 +6,34 @@ import org.apache.ibatis.session.SqlSessionFactory;
 import org.mybatis.spring.SqlSessionFactoryBean;
 import org.mybatis.spring.SqlSessionTemplate;
 import org.mybatis.spring.annotation.MapperScan;
+import org.mybatis.spring.boot.autoconfigure.MybatisProperties;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.boot.context.properties.ConfigurationProperties;
+import org.springframework.boot.context.properties.EnableConfigurationProperties;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Primary;
-import org.springframework.core.io.support.PathMatchingResourcePatternResolver;
 import org.springframework.jdbc.datasource.DataSourceTransactionManager;
 
 import com.alibaba.druid.spring.boot.autoconfigure.DruidDataSourceBuilder;
+import org.springframework.util.StringUtils;
 
 @Configuration
 @MapperScan(basePackages = "com.baseAdmin.master", sqlSessionTemplateRef = "masterSqlSessionTemplate")
 public class DruidConfigMaster {
-	@Bean(name="masterConfig")
-    @ConfigurationProperties(prefix = "mybatis.configuration")
-    public org.apache.ibatis.session.Configuration globalConfiguration() {
-        return new org.apache.ibatis.session.Configuration();
-    }
+/*	@Autowired
+	MybatisProperties mybatisProperties;*/
+	@Bean(name="mybatisConfig")
+	@ConfigurationProperties(prefix = "mybatis.configuration")
+	public org.apache.ibatis.session.Configuration globalConfiguration() {
+		return new org.apache.ibatis.session.Configuration();
+	}
+	@Bean(name="masterMybatisProperties")
+	@ConfigurationProperties(prefix = "mybatis.master")
+	public MybatisPropertiesCustom getMasterMybatisProperties() {
+		return new MybatisPropertiesCustom();
+	}
 	@Primary
 	@Bean(name = "masterDataSource")
 	@ConfigurationProperties("spring.datasource.druid.master")
@@ -33,10 +43,15 @@ public class DruidConfigMaster {
 
 	@Bean(name = "masterSqlSessionFactory")
 	@Primary
-	public SqlSessionFactory sqlSessionFactory(@Qualifier("masterDataSource") DataSource dataSource,@Qualifier("masterConfig") org.apache.ibatis.session.Configuration mybatisConfig) throws Exception {
+	public SqlSessionFactory sqlSessionFactory(@Qualifier("masterMybatisProperties") MybatisPropertiesCustom mybatisProperties, @Qualifier("masterDataSource") DataSource dataSource) throws Exception {
 		SqlSessionFactoryBean bean = new SqlSessionFactoryBean();
 		bean.setDataSource(dataSource);
-		bean.setTypeAliasesPackage("com.baseAdmin.master.pojo");
+		org.apache.ibatis.session.Configuration configuration = mybatisProperties.getConfiguration();
+		bean.setConfiguration(configuration);
+		bean.setTypeAliasesPackage(mybatisProperties.getTypeAliasesPackage());
+
+
+		/*bean.setTypeAliasesPackage(mybatisProperties.getTypeAliasesPackage());*/
 		//bean.setMapperLocations(mapperLocations);
 		//bean.setMapperLocations(
 		//		new PathMatchingResourcePatternResolver().getResources("classpath:mappers/primary/**/*Mapper.xml"));
@@ -45,7 +60,7 @@ public class DruidConfigMaster {
 		// 自动将数据库中的下划线转换为驼峰格式
 		//configuration.setMapUnderscoreToCamelCase(true);
 	//	configuration.setCallSettersOnNulls(true);
-		bean.setConfiguration(mybatisConfig);
+		/*bean.setConfiguration(mybatisConfig);*/
 		return bean.getObject();
 	}
 	

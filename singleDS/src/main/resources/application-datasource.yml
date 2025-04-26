@@ -2,7 +2,7 @@ spring:
    datasource:
       type: com.alibaba.druid.pool.DruidDataSource
       druid:
-        #filters: stat,wall  Filter都是默认配置,下面是自定义配置(经测试无效)
+        #filters: stat,wall  Filter是默认配置,下面是自定义配置(经测试无效)
         filter:
           wall:
             enabled: true

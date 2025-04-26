@@ -4,6 +4,7 @@ import com.baseAdmin.dynamicdata.CurDataSource;
 import com.baseAdmin.dynamicdata.DataSourceNames;
 import com.baseAdmin.mapper.T1Mapper;
 import com.baseAdmin.mapper.T2Mapper;
+import com.baseAdmin.pojo.T2;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -18,8 +19,8 @@ public class SecondService {
 	@Autowired
 	private T2Mapper t2Mapper;
 
-	public List<Map<String, Object>> getWorkorderInfo(Map<String, Object> params) {
-		List<Map<String, Object>> list = t2Mapper.selectWorkorderInfo(null);
+	public List<T2> getWorkorderInfo(Map<String, Object> params) {
+		List<T2> list = t2Mapper.selectT2(null);
 		return list;
 	}
 

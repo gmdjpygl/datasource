@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.4//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.baseAdmin.second.tt1.mapper.T2Mapper">
+  
+    <select id="selectData"  resultType="T2" parameterType="java.util.Map">
+    	select id,name,birth_date, birth_date,address_info from t2  order by id
+    </select>     
+   
+  
+</mapper>

@@ -6,6 +6,7 @@ import com.baseAdmin.dynamicdata.DynamicDataSource;
 import com.baseAdmin.mapper.T1Mapper;
 import com.baseAdmin.mapper.T2Mapper;
 import com.baseAdmin.pojo.T1;
+import com.baseAdmin.pojo.T2;
 import com.baseAdmin.util.GsonUtil;
 import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
@@ -24,7 +25,7 @@ public class FirstService {
 
 	public PageInfo<T1> getT1(Map<String, Object> params) {
 		DynamicDataSource.setDataSource(DataSourceNames.SECOND);
-		List<Map<String, Object>> list3 = t2Mapper.selectWorkorderInfo(null);
+		List<T2> list3 = t2Mapper.selectT2(null);
 		System.out.println(GsonUtil.BeanToJson(list3));
 		DynamicDataSource.setDataSource(DataSourceNames.FIRST);
 		List<T1> list2 = t1Mapper.selectData(null);
@@ -35,8 +36,8 @@ public class FirstService {
 		return pageInfo;
 	}
 	@CurDataSource(name=DataSourceNames.SECOND)
-	public List<Map<String, Object>> getSecond(Map<String, Object> params) {
-		List<Map<String, Object>> list = t2Mapper.selectWorkorderInfo(null);
+	public List<T2> getSecond(Map<String, Object> params) {
+		List<T2> list = t2Mapper.selectT2(null);
 		return list;
 	}
 

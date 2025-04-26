@@ -1,9 +1,11 @@
 package com.baseAdmin.mapper;
 
+import com.baseAdmin.pojo.T2;
+
 import java.util.List;
 import java.util.Map;
 
 public interface T2Mapper {
-	List<Map<String, Object>> selectWorkorderInfo(Map<String, Object> map);
+	List<T2> selectT2(Map<String, Object> map);
 
 }
